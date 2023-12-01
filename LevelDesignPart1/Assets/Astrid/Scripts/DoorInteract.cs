@@ -13,26 +13,33 @@ public class DoorInteract : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Entered");
-        // TODO: Check if it's the player
+        if (other.GetComponent<CharacterController>()  != null )
+        {
+            OpenDoor();
+        }
         // TODO: Check if they press the Interact action
         // Open door
-        OpenDoor();
     }
 
+    // For testing, should be removed latter!
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Trigger Exit");
-        // TODO: Check if it's the player
         // TODO: Check if they press the Interact action
         // Close door
-        CloseDoor();
+        if (other.GetComponent<CharacterController>() != null)
+        {
+            CloseDoor();
+        } 
     }
 
     void OpenDoor()
     {
         float yRotation = rotateIn ? -openRotationMax : openRotationMax;
 
-        door.rotation = new Quaternion(0, yRotation, 0, 0);
+        //door.rotation = new Quaternion(0, yRotation, 0, 0);
+
+        door.Rotate(0, yRotation, 0.0f, Space.Self);
         isOpened = true;
     }
 
