@@ -9,11 +9,18 @@ public class DoorInteract : MonoBehaviour
     [SerializeField] bool rotateIn;
     [SerializeField] bool closeAuto; // Should the door close on it's own?
 
+    Quaternion startQuaternion;
+
     bool isOpened;
+    private void Start()
+    {
+        startQuaternion = door.rotation;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Entered");
+        if (isOpened) return;
         if (other.GetComponent<CharacterController>()  != null )
         {
             OpenDoor();
@@ -47,7 +54,7 @@ public class DoorInteract : MonoBehaviour
 
     void CloseDoor() 
     {
-        door.rotation = Quaternion.identity;
+        door.rotation = startQuaternion;
         isOpened = false;
     }
 }
