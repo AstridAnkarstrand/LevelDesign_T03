@@ -7,6 +7,7 @@ public class DoorInteract : MonoBehaviour
     [SerializeField] Transform door;
     [SerializeField] float openRotationMax;
     [SerializeField] bool rotateIn;
+    [SerializeField] bool closeAuto; // Should the door close on it's own?
 
     bool isOpened;
 
@@ -29,7 +30,8 @@ public class DoorInteract : MonoBehaviour
         // Close door
         if (other.GetComponent<CharacterController>() != null)
         {
-            CloseDoor();
+            if (closeAuto)
+                CloseDoor();
         } 
     }
 
