@@ -2,39 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code: https://www.youtube.com/watch?v=cPltQK5LlGE&t=311s&ab_channel=LlamAcademy 
 public class DoorInteract : MonoBehaviour
 {
     [SerializeField] Transform door;
-    [SerializeField] float openRotationMax;
-    [SerializeField] bool rotateIn;
+    [SerializeField] float openRotationMax = 90f;
     [SerializeField] bool closeAuto; // Should the door close on it's own?
+    [SerializeField] float Speed = 1f;
+    [SerializeField] LayerMask layer;
+    [SerializeField] bool Rotated90;
 
-    Quaternion startQuaternion;
+    Vector3 startRotation;
+    Vector3 Forward;
+    bool IsOpen;
 
-    bool isOpened;
+    Coroutine AnimationCoroutine;
+
     private void Start()
     {
-        startQuaternion = door.rotation;
+        startRotation = door.rotation.eulerAngles;
+        if (Rotated90)
+            Forward = door.right;
+        else
+            Forward = door.forward;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Entered");
-        if (isOpened) return;
+        if (IsOpen) return;
         if (other.GetComponent<CharacterController>()  != null )
         {
-            OpenDoor();
+            OpenDoor(other.transform.position);
         }
-        // TODO: Check if they press the Interact action
-        // Open door
     }
 
     // For testing, should be removed latter!
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Trigger Exit");
-        // TODO: Check if they press the Interact action
-        // Close door
         if (other.GetComponent<CharacterController>() != null)
         {
             if (closeAuto)
@@ -42,19 +48,74 @@ public class DoorInteract : MonoBehaviour
         } 
     }
 
-    void OpenDoor()
+    void OpenDoor(Vector3 playerPosition)
     {
-        float yRotation = rotateIn ? -openRotationMax : openRotationMax;
+        if (IsOpen) return;
 
-        //door.rotation = new Quaternion(0, yRotation, 0, 0);
+        if (AnimationCoroutine != null)
+        {
+            StopCoroutine(AnimationCoroutine);
+        }
 
-        door.Rotate(0, yRotation, 0.0f, Space.Self);
-        isOpened = true;
+        // Check if player is in front of or behind door so it can rotate away from the player.
+        float dot = Vector3.Dot(Forward, (playerPosition - door.position).normalized);
+
+        AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
     }
 
-    void CloseDoor() 
+    IEnumerator DoRotationOpen(float forwardAmount)
     {
-        door.rotation = startQuaternion;
-        isOpened = false;
+        Quaternion start = door.rotation;
+        Quaternion end;
+
+        if (forwardAmount >= 0)
+        {
+            end = Quaternion.Euler(new Vector3(0, start.y + openRotationMax, 0));
+        } else
+        {
+            end = Quaternion.Euler(new Vector3(0, start.y - openRotationMax, 0));
+        }
+
+        IsOpen = true;
+
+        float time = 0;
+        while (time < 1)
+        {
+            door.rotation = Quaternion.Slerp(start, end, time);
+            yield return null;
+            time += Time.deltaTime * Speed;
+        }
+
+        door.rotation = end;
+    }
+
+    void CloseDoor()
+    {
+        if (!IsOpen) return;
+
+        if (AnimationCoroutine != null)
+        {
+            StopCoroutine(AnimationCoroutine);
+        }
+
+        AnimationCoroutine = StartCoroutine(DoRotationClose());
+    }
+
+    IEnumerator DoRotationClose()
+    {
+        Quaternion start = door.rotation;
+        Quaternion end = Quaternion.Euler(startRotation);
+
+        IsOpen = false;
+
+        float time = 0;
+        while (time < 1)
+        {
+            door.rotation = Quaternion.Slerp(start, end, time);
+            yield return null;
+            time += Time.deltaTime * Speed;
+        }
+
+        door.rotation = end;
     }
 }
