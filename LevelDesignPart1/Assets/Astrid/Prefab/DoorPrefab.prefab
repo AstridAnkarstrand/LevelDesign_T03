@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpen: 0
-  IsAutomaticClose: 1
+  IsAutomaticClose: 0
   IsRotatingDoor: 1
   OpenSpeed: 0.6
   CloseSpeed: 1
