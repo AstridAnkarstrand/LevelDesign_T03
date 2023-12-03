@@ -5,6 +5,11 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] Door Door;
     [SerializeField] float WaitBeforeCloseTime = 0f;
+    [Tooltip("Should the countdown for automatic close be on door opened or on trigger exited." +
+        "Does nothing if the Door isn't autoclose.")]
+    [SerializeField] bool IsCloseOnTriggerExit = true;
+    [Tooltip("Does the door require input from player to open and close?")]
+    [SerializeField] bool IsInputBased = true;
 
     Coroutine CloseTimerCoroutine;
     Transform Player;
@@ -12,6 +17,8 @@ public class DoorTrigger : MonoBehaviour
     private void Update()
     {
         if (Player == null) return;
+        //if (!Door.GetIsRotatingDoor()) return;
+        if (!IsInputBased) return;
 
         // Input
         if (Input.GetMouseButtonDown(0))
@@ -29,6 +36,9 @@ public class DoorTrigger : MonoBehaviour
                 }
 
                 Door.Open(Player.position);
+
+                if (!IsCloseOnTriggerExit & Door.IsAutomaticClose)
+                    CloseTimerCoroutine = StartCoroutine(WaitBeforeAutomaticClose());
             }
         }
     }
@@ -38,16 +48,17 @@ public class DoorTrigger : MonoBehaviour
         if (other.TryGetComponent(out CharacterController controller))
         {
             Player = other.transform;
-            /*
-            if (CloseTimerCoroutine != null)
-            {
-                StopCoroutine(CloseTimerCoroutine);
-            }
 
-            if (!Door.IsOpen)
+            if (!IsInputBased)
             {
-                Door.Open(other.transform.position);
-            }*/
+                // Open door
+                if (CloseTimerCoroutine != null)
+                {
+                    StopCoroutine(CloseTimerCoroutine);
+                }
+
+                Door.Open(Player.position);
+            }
         }
     }
 

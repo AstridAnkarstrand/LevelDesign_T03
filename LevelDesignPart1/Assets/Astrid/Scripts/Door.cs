@@ -33,6 +33,8 @@ public class Door : MonoBehaviour
 
     private Coroutine AnimationCoroutine;
 
+    public bool GetIsRotatingDoor() { return IsRotatingDoor; }
+
     private void Awake()
     {
         StartRotation = transform.rotation.eulerAngles;
