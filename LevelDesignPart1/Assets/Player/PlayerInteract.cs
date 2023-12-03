@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -23,6 +21,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractMaxDistance, InteractLayer)
            && hit.collider.TryGetComponent(out IInteract iInteract))
         {
+            // Extra check to see if there is objects inbetween
             InteractUI.SetActive(iInteract.GetIsInteractable());
         }
         else
