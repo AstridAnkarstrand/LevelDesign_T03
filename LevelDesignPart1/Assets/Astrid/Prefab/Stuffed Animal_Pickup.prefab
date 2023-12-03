@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5125646367205675682}
   - component: {fileID: 4066953387189543053}
   - component: {fileID: 1281836834671508118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stuffed Animal_Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &1281836834671508118
 MonoBehaviour:

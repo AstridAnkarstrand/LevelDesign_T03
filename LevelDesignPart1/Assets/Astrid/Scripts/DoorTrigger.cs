@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoorTrigger : MonoBehaviour
+public class DoorTrigger : MonoBehaviour, IInteract
 {
-    [SerializeField] Door Door;
+    [SerializeField] Door[] Door;
     [SerializeField] float WaitBeforeCloseTime = 0f;
     [Tooltip("Should the countdown for automatic close be on door opened or on trigger exited." +
         "Does nothing if the Door isn't autoclose.")]
@@ -17,30 +17,13 @@ public class DoorTrigger : MonoBehaviour
     private void Update()
     {
         if (Player == null) return;
-        //if (!Door.GetIsRotatingDoor()) return;
         if (!IsInputBased) return;
 
         // Input
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
-            if (Door.IsOpen)
-            {
-                // Close door
-                Door.Close(false);
-            } else
-            {
-                // Open door
-                if (CloseTimerCoroutine != null)
-                {
-                    StopCoroutine(CloseTimerCoroutine);
-                }
-
-                Door.Open(Player.position);
-
-                if (!IsCloseOnTriggerExit & Door.IsAutomaticClose)
-                    CloseTimerCoroutine = StartCoroutine(WaitBeforeAutomaticClose());
-            }
-        }
+            Interact(Player);
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,7 +40,10 @@ public class DoorTrigger : MonoBehaviour
                     StopCoroutine(CloseTimerCoroutine);
                 }
 
-                Door.Open(Player.position);
+                foreach (Door door in Door)
+                {
+                    door.Open(Player.position);
+                }
             }
         }
     }
@@ -67,11 +53,14 @@ public class DoorTrigger : MonoBehaviour
         if (other.TryGetComponent(out CharacterController controller))
         {
             Player = null;
-            if (Door.IsOpen)
+            foreach (Door door in Door)
             {
-                if (Door.IsAutomaticClose)
+                if (door.IsOpen)
                 {
-                    CloseTimerCoroutine = StartCoroutine(WaitBeforeAutomaticClose());
+                    if (door.IsAutomaticClose)
+                    {
+                        CloseTimerCoroutine = StartCoroutine(WaitBeforeAutomaticClose());
+                    }
                 }
             }
         }
@@ -80,6 +69,39 @@ public class DoorTrigger : MonoBehaviour
     IEnumerator WaitBeforeAutomaticClose()
     {
         yield return new WaitForSeconds(WaitBeforeCloseTime);
-        Door.Close(true);
+        foreach (Door door in Door)
+            door.Close(true);
+    }
+
+    public void Interact(Transform transform)
+    {
+        foreach (Door door in Door)
+        {
+            if (door.IsOpen)
+            {
+                // Close door
+                door.Close(false);
+            }
+            else
+            {
+                // Open door
+                if (CloseTimerCoroutine != null)
+                {
+                    StopCoroutine(CloseTimerCoroutine);
+                }
+
+                door.Open(transform.position);
+
+                if (!IsCloseOnTriggerExit & door.IsAutomaticClose)
+                    CloseTimerCoroutine = StartCoroutine(WaitBeforeAutomaticClose());
+            }
+        }
+            
+        
+    }
+
+    public bool GetIsInteractable()
+    {
+        return IsInputBased;
     }
 }

@@ -2082,6 +2082,11 @@ PrefabInstance:
       propertyPath: InteractUI
       value: 
       objectReference: {fileID: 1570860647}
+    - target: {fileID: 6111550248387615469, guid: 51b57e7fdf5700a44a864b3998b2c259,
+        type: 3}
+      propertyPath: IsInputBased
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6545276486786389836, guid: 51b57e7fdf5700a44a864b3998b2c259,
         type: 3}
       propertyPath: m_Mesh
@@ -2167,6 +2172,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1049466450}
+    - target: {fileID: 8946188362590746529, guid: 51b57e7fdf5700a44a864b3998b2c259,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8024,6 +8034,29 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &568444829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2684611154382053281, guid: eacd37b335cea824e94c4375a92ce686,
+    type: 3}
+  m_PrefabInstance: {fileID: 3291167396548403921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &568444834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568444829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a021b86ca169649a485712e6991f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractUI: {fileID: 1570860647}
+  InteractMaxDistance: 4
+  InteractLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &570080670
 GameObject:
   m_ObjectHideFlags: 0
@@ -8042,7 +8075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &570080671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20708,7 +20741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1570860648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24538,7 +24571,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128, y: 128}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916545756
 MonoBehaviour:
@@ -29009,7 +29042,7 @@ PrefabInstance:
     - target: {fileID: 5125646367205675682, guid: a3669850368b14d4194b22ddf40c9fb6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 5125646367205675682, guid: a3669850368b14d4194b22ddf40c9fb6,
         type: 3}
@@ -30346,7 +30379,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2684611154382053281, guid: eacd37b335cea824e94c4375a92ce686,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 568444834}
   m_SourcePrefab: {fileID: 100100000, guid: eacd37b335cea824e94c4375a92ce686, type: 3}
 --- !u!114 &3380326736307733345
 MonoBehaviour:
@@ -32844,7 +32881,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1296907054}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7390740125057358679, guid: bae215767b92b7c4f9904deedb39aabc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

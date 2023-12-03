@@ -1234,6 +1234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5108016401105137944}
   - component: {fileID: 7784044855555552168}
+  - component: {fileID: 8691452031812918821}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1282,6 +1283,27 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: -1}
   SlideAmount: 1.9
+--- !u!65 &8691452031812918821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361436898361117729}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 2, z: 0.08}
+  m_Center: {x: 0.45, y: 1, z: 0}
 --- !u!1 &6559274388241166312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,9 +1776,8 @@ GameObject:
   - component: {fileID: 7111060448393866482}
   - component: {fileID: 2695884114272206682}
   - component: {fileID: 1485932973200480631}
-  - component: {fileID: 8864346782489224891}
   m_Layer: 0
-  m_Name: Visual+Collider
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2072,27 +2093,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8030424469896247011}
   m_Mesh: {fileID: 0}
---- !u!65 &8864346782489224891
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8030424469896247011}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9, y: 2, z: 0.08}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8411992153959714584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 8416564207148271293}
   - component: {fileID: 3154667369224693677}
   - component: {fileID: 1033365044793564561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2145,7 +2145,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 4}
+  m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1033365044793564561
 MonoBehaviour:
@@ -2159,8 +2159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473c2e8be3dfea74ba7d889bf6814da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 7784044855555552168}
+  Door:
+  - {fileID: 7784044855555552168}
   WaitBeforeCloseTime: 1
+  IsCloseOnTriggerExit: 1
+  IsInputBased: 1
 --- !u!1 &8462702935747806346
 GameObject:
   m_ObjectHideFlags: 0

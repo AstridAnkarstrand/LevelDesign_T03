@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : MonoBehaviour, IInteract
 {
-    private void OnTriggerEnter(Collider other)
+    public void Interact(Transform transform)
     {
-        if (other.GetComponent<CharacterController>() == null) return;
+        Debug.Log("Collectable taken!");
 
+        //
         // TODO: Add to score type thing
 
         Destroy(gameObject);
+    }
+
+    public bool GetIsInteractable()
+    {
+        return true;
     }
 }

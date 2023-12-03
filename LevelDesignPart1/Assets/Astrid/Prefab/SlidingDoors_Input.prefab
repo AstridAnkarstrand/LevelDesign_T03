@@ -66,7 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473c2e8be3dfea74ba7d889bf6814da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 6850417035716255324}
+  Door:
+  - {fileID: 0}
   WaitBeforeCloseTime: 0
   IsCloseOnTriggerExit: 1
   IsInputBased: 1
@@ -80,6 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6033499723504665210}
   - component: {fileID: 6850417035716255324}
+  - component: {fileID: 4954426028254980156}
   m_Layer: 0
   m_Name: Door_Left
   m_TagString: Untagged
@@ -125,6 +127,27 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: -1}
   SlideAmount: 1
+--- !u!65 &4954426028254980156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169109925266138436}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 2, z: 0.08}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &249800796471754323
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,8 +664,7 @@ GameObject:
   - component: {fileID: 8897504552921580345}
   - component: {fileID: 958057795136214679}
   - component: {fileID: 3493059611700333576}
-  - component: {fileID: 7390740125057358679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +707,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3493059611700333576
 MonoBehaviour:
@@ -699,23 +721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473c2e8be3dfea74ba7d889bf6814da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 6850417035716255324}
-  WaitBeforeCloseTime: 2
-  IsCloseOnTriggerExit: 1
-  IsInputBased: 0
---- !u!114 &7390740125057358679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2935143355639934732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473c2e8be3dfea74ba7d889bf6814da7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Door: {fileID: 532764592689210393}
+  Door:
+  - {fileID: 6850417035716255324}
+  - {fileID: 532764592689210393}
   WaitBeforeCloseTime: 2
   IsCloseOnTriggerExit: 1
   IsInputBased: 0
@@ -769,9 +777,8 @@ GameObject:
   - component: {fileID: 1545326066700465592}
   - component: {fileID: 4484274161949461986}
   - component: {fileID: 8596411383847716159}
-  - component: {fileID: 8736278407030748916}
   m_Layer: 0
-  m_Name: Visual+Collider
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,27 +1094,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3491449130752667674}
   m_Mesh: {fileID: 0}
---- !u!65 &8736278407030748916
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491449130752667674}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9, y: 2, z: 0.08}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3931665145067640974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5319392234022765781}
   - component: {fileID: 532764592689210393}
+  - component: {fileID: 6043167197235822520}
   m_Layer: 0
   m_Name: Door_Right
   m_TagString: Untagged
@@ -1163,6 +1150,27 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: 1}
   SlideAmount: 1
+--- !u!65 &6043167197235822520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931665145067640974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 2, z: 0.08}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5798342128981674427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,9 +1289,8 @@ GameObject:
   - component: {fileID: 1061975096661839197}
   - component: {fileID: 7389399599452222026}
   - component: {fileID: 2104264351647699545}
-  - component: {fileID: 7831028119402387560}
   m_Layer: 0
-  m_Name: Visual+Collider
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1599,27 +1606,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6022614797681804852}
   m_Mesh: {fileID: 0}
---- !u!65 &7831028119402387560
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6022614797681804852}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9, y: 2, z: 0.08}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6147186572157119216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,7 +2274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473c2e8be3dfea74ba7d889bf6814da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 532764592689210393}
+  Door:
+  - {fileID: 0}
   WaitBeforeCloseTime: 0
   IsCloseOnTriggerExit: 1
   IsInputBased: 1

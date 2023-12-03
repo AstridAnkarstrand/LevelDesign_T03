@@ -104,6 +104,8 @@ public class Door : MonoBehaviour
             yield return null;
             time += Time.deltaTime * OpenSpeed;
         }
+
+        transform.position = endPosition;
     }
 
     public void Close(bool IsAutoClose)
@@ -159,5 +161,7 @@ public class Door : MonoBehaviour
             yield return null;
             time += Time.deltaTime * CloseSpeed;
         }
+
+        transform.position = endPosition;
     }
 }
