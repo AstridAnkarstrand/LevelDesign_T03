@@ -32083,40 +32083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 181413345261081362, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25a9fb42d361f46ad89221f6d301e96e, type: 2}
     - target: {fileID: 3739770448237524251, guid: 0341cf328297e6345a01841f84387de8,
         type: 3}
       propertyPath: m_Name
       value: Lights+Switch
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350879171416657456, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350879171416657456, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350879171416657456, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350879171416657456, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350879171416657456, guid: 0341cf328297e6345a01841f84387de8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8761448473766010519, guid: 0341cf328297e6345a01841f84387de8,
         type: 3}
@@ -32131,7 +32101,7 @@ PrefabInstance:
     - target: {fileID: 8761448473766010519, guid: 0341cf328297e6345a01841f84387de8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8761448473766010519, guid: 0341cf328297e6345a01841f84387de8,
         type: 3}
