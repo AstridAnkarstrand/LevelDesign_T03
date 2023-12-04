@@ -8,6 +8,8 @@ public class Switch : MonoBehaviour, IInteract
     Vector3 StartRotation;
     bool IsFlipped = false;
 
+    public bool GetIsFlipped() { return IsFlipped; }
+
     private void Awake()
     {
         StartRotation =  Button.rotation.eulerAngles;

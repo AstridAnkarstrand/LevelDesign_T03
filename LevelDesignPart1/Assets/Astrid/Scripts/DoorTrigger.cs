@@ -10,9 +10,13 @@ public class DoorTrigger : MonoBehaviour, IInteract
     [SerializeField] bool IsCloseOnTriggerExit = true;
     [Tooltip("Does the door require input from player to open and close?")]
     [SerializeField] bool IsInputBased = true;
+    [Tooltip("Does the door open automatically on trigger")]
+    [SerializeField] bool IsOpenOnTrigger = false;
 
     Coroutine CloseTimerCoroutine;
     Transform Player;
+
+    public void SetIsInputBased(bool isInputBased) { IsInputBased = isInputBased; }
 
     private void Update()
     {
@@ -32,7 +36,7 @@ public class DoorTrigger : MonoBehaviour, IInteract
         {
             Player = other.transform;
 
-            if (!IsInputBased)
+            if (!IsInputBased && IsOpenOnTrigger)
             {
                 // Open door
                 if (CloseTimerCoroutine != null)
