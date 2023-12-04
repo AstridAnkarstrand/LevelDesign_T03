@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
     public bool IsAutomaticClose = false;
     [SerializeField]
     private bool IsRotatingDoor = true;
+    [Tooltip("Door opens at Play.")]
+    [SerializeField] bool IsStartOpen = false;
     [Tooltip("Multiplier, higher value means the door closes quicker.")]
     [SerializeField]
     private float OpenSpeed = 1f;
@@ -41,6 +43,12 @@ public class Door : MonoBehaviour
         // Since "Forward" actually is pointing into the door frame, choose a direction to think about as "forward" 
         Forward = transform.forward;
         StartPosition = transform.position;
+
+        if (IsStartOpen)
+        {
+            IsOpen = true;
+            transform.rotation = Quaternion.Euler(new Vector3(StartRotation.x, StartRotation.y - RotationAmount, StartRotation.z));
+        }
     }
 
     public void Open(Vector3 UserPosition)
