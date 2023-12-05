@@ -77,6 +77,23 @@ public class DoorTrigger : MonoBehaviour, IInteract
             door.Close(true);
     }
 
+    public void CloseDoor()
+    {
+        if (CloseTimerCoroutine != null)
+        {
+            StopCoroutine(CloseTimerCoroutine);
+        }
+
+        foreach (Door door in Door)
+        {
+            if (door.IsOpen)
+            {
+                // Close door
+                door.Close(true);
+            }
+        }
+    }
+
     public void Interact(Transform transform)
     {
         foreach (Door door in Door)
