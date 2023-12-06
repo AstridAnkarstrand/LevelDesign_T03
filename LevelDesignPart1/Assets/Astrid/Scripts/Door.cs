@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -28,12 +29,16 @@ public class Door : MonoBehaviour
     private Vector3 SlideDirection = Vector3.back;
     [SerializeField]
     private float SlideAmount = 1.9f;
+    [Header("Audio")]
+    [SerializeField] AudioClip OpenDoorSFX, CloseDoorSFX, SlamDoorSFX;
 
     private Vector3 StartRotation;
     private Vector3 StartPosition;
     private Vector3 Forward;
 
     private Coroutine AnimationCoroutine;
+
+    AudioSource _AudioSource;
 
     public bool GetIsRotatingDoor() { return IsRotatingDoor; }
 
@@ -49,6 +54,8 @@ public class Door : MonoBehaviour
             IsOpen = true;
             transform.rotation = Quaternion.Euler(new Vector3(StartRotation.x, StartRotation.y - RotationAmount, StartRotation.z));
         }
+
+        _AudioSource = transform.AddComponent<AudioSource>();
     }
 
     public void Open(Vector3 UserPosition)
@@ -88,6 +95,9 @@ public class Door : MonoBehaviour
 
         IsOpen = true;
 
+        // Audio
+        PlaySound(OpenDoorSFX);
+
         float time = 0;
         while (time < 1)
         {
@@ -106,6 +116,10 @@ public class Door : MonoBehaviour
 
         float time = 0;
         IsOpen = true;
+
+        // Audio
+        PlaySound(OpenDoorSFX);
+
         while (time < 1)
         {
             transform.position = Vector3.Lerp(startPosition, endPosition, time);
@@ -143,6 +157,9 @@ public class Door : MonoBehaviour
 
         IsOpen = false;
 
+        // Audio
+        PlaySound(CloseDoorSFX);
+
         float time = 0;
         while (time < 1)
         {
@@ -153,6 +170,12 @@ public class Door : MonoBehaviour
         }
 
         transform.rotation = endRotation;
+
+        // Audio if the door is auto closed
+        if (IsAutoClose)
+        {
+            PlaySound(SlamDoorSFX);
+        }
     }
 
     private IEnumerator DoSlidingClose()
@@ -163,6 +186,9 @@ public class Door : MonoBehaviour
 
         IsOpen = false;
 
+        // Audio
+        PlaySound(CloseDoorSFX);
+
         while (time < 1)
         {
             transform.position = Vector3.Lerp(startPosition, endPosition, time);
@@ -171,5 +197,13 @@ public class Door : MonoBehaviour
         }
 
         transform.position = endPosition;
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            _AudioSource.PlayOneShot(clip);
+        }
     }
 }
