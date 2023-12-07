@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4297575476983658441}
   - component: {fileID: 4428435015582660070}
+  - component: {fileID: 6094949451316218302}
   m_Layer: 0
   m_Name: NextScene
   m_TagString: Untagged
@@ -47,6 +48,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Image: {fileID: 5350091195461772348}
   SceneNumber: 0
+--- !u!114 &6094949451316218302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178255017043376080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fec3c7c4002304a973fd51bc2356be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547671597465790023
 GameObject:
   m_ObjectHideFlags: 0
