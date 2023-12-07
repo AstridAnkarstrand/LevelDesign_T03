@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Astrid/Scenes/Astrid_LD2.unity
     guid: 2c97d52ff3857f041a1e039b15fef4f8
+  - enabled: 1
+    path: Assets/Fredrik/Scenes/Fredrik's scene.unity
+    guid: d35ced9d8def60b439b95b662f176f16
   m_configObjects: {}
