@@ -21,6 +21,12 @@ public class SC_FPSController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+
+    // Audio stuff - Astrid
+    [SerializeField] AudioClip[] FootSteps;
+    AudioSource _AudioSource;
+
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -28,6 +34,8 @@ public class SC_FPSController : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _AudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,6 +68,12 @@ public class SC_FPSController : MonoBehaviour
 
         characterController.Move(moveDirection * Time.deltaTime);
 
+        // Audio - Astrid
+        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") != 0 && !_AudioSource.isPlaying)
+        {
+            PlayFootSteps();
+        }
+
 
         if (canMove)
         {
@@ -67,6 +81,15 @@ public class SC_FPSController : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+    }
+
+    private void PlayFootSteps()
+    {
+        if (FootSteps.Length > 0)
+        {
+            int i = Random.Range(0, FootSteps.Length - 1);
+            _AudioSource.PlayOneShot(FootSteps[i]);
         }
     }
 }
