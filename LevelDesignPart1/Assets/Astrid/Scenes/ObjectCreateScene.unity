@@ -27148,7 +27148,7 @@ PrefabInstance:
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
@@ -27157,8 +27157,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
+      propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
+        type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
@@ -27172,9 +27177,14 @@ PrefabInstance:
       objectReference: {fileID: 327707713}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
+      propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 327707713}
+    - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
+        type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1016008744}
+      objectReference: {fileID: 327707713}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -27197,8 +27207,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
+      propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchSize
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
+        type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: SwitchSize
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
@@ -27212,8 +27227,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
+      propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChangePlayerSize, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
+        type: 3}
       propertyPath: onFirstEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: ChangePlayerSize, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1497102449564611570, guid: 73f9bba4b557d904fbb30c923041842f,
         type: 3}
@@ -27300,12 +27320,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73f9bba4b557d904fbb30c923041842f, type: 3}
---- !u!1 &1016008744 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3324597431902386606, guid: 73f9bba4b557d904fbb30c923041842f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1016008743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1018981771
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -158,7 +158,7 @@ public class Door : MonoBehaviour
         IsOpen = false;
 
         // Audio
-        PlaySound(CloseDoorSFX);
+        PlaySound(IsAutoClose ? SlamDoorSFX : CloseDoorSFX);
 
         float time = 0;
         while (time < 1)
@@ -170,12 +170,6 @@ public class Door : MonoBehaviour
         }
 
         transform.rotation = endRotation;
-
-        // Audio if the door is auto closed
-        if (IsAutoClose)
-        {
-            PlaySound(SlamDoorSFX);
-        }
     }
 
     private IEnumerator DoSlidingClose()
@@ -203,7 +197,7 @@ public class Door : MonoBehaviour
     {
         if (clip != null)
         {
-            _AudioSource.PlayOneShot(clip);
+            _AudioSource.PlayOneShot(clip, 0.2f);
         }
     }
 }
