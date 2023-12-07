@@ -132,6 +132,7 @@ MonoBehaviour:
   IsOpen: 0
   IsAutomaticClose: 1
   IsRotatingDoor: 0
+  IsStartOpen: 0
   OpenSpeed: 1
   CloseSpeed: 1
   AutomaticCloseSpeed: 1
@@ -139,6 +140,9 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: -1, y: 0, z: 0}
   SlideAmount: 1
+  OpenDoorSFX: {fileID: 0}
+  CloseDoorSFX: {fileID: 0}
+  SlamDoorSFX: {fileID: 8300000, guid: bcd7dd5d252f4c84abe99a95bad75447, type: 3}
 --- !u!65 &6029981711541199732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -846,6 +850,7 @@ MonoBehaviour:
   WaitBeforeCloseTime: 0
   IsCloseOnTriggerExit: 1
   IsInputBased: 0
+  IsOpenOnTrigger: 0
 --- !u!1 &7059139088684855782
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +900,7 @@ MonoBehaviour:
   IsOpen: 0
   IsAutomaticClose: 1
   IsRotatingDoor: 0
+  IsStartOpen: 0
   OpenSpeed: 1
   CloseSpeed: 1
   AutomaticCloseSpeed: 1
@@ -902,6 +908,9 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: 1, y: 0, z: 0}
   SlideAmount: 1
+  OpenDoorSFX: {fileID: 0}
+  CloseDoorSFX: {fileID: 0}
+  SlamDoorSFX: {fileID: 8300000, guid: bcd7dd5d252f4c84abe99a95bad75447, type: 3}
 --- !u!65 &3372599343227806598
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1326,6 +1326,7 @@ MonoBehaviour:
   IsOpen: 0
   IsAutomaticClose: 0
   IsRotatingDoor: 1
+  IsStartOpen: 0
   OpenSpeed: 0.6
   CloseSpeed: 1
   AutomaticCloseSpeed: 4
@@ -1333,6 +1334,9 @@ MonoBehaviour:
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: -1}
   SlideAmount: 1.9
+  OpenDoorSFX: {fileID: 8300000, guid: acf9f390c5ca3dd41badb624d2c559bc, type: 3}
+  CloseDoorSFX: {fileID: 8300000, guid: acf9f390c5ca3dd41badb624d2c559bc, type: 3}
+  SlamDoorSFX: {fileID: 8300000, guid: bcd7dd5d252f4c84abe99a95bad75447, type: 3}
 --- !u!65 &8691452031812918821
 BoxCollider:
   m_ObjectHideFlags: 0

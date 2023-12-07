@@ -5,7 +5,7 @@ public class Switch : MonoBehaviour, IInteract
 {
     [SerializeField] GameObject[] Objects;
     [SerializeField] Transform Button;
-    [SerializeField] AudioClip SwitchSFX;
+    [SerializeField] AudioClip[] SwitchSFXs;
 
     AudioSource _AudioSource;
     Vector3 StartRotation;
@@ -41,9 +41,10 @@ public class Switch : MonoBehaviour, IInteract
 
     void PlaySFX()
     {
-        if (SwitchSFX != null)
+        if (SwitchSFXs.Length > 0)
         {
-            _AudioSource.PlayOneShot(SwitchSFX);
+            int i = Random.Range(0, SwitchSFXs.Length - 1);
+            _AudioSource.PlayOneShot(SwitchSFXs[i]);
         }
     }
 }
