@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Level Jonathan.unity
+    guid: 08a863400482712439fc4580204d5775
+  - enabled: 1
+    path: Assets/Astrid/Scenes/Astrid_LD2.unity
+    guid: 2c97d52ff3857f041a1e039b15fef4f8
   m_configObjects: {}
