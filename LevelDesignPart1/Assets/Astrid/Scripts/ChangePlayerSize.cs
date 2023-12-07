@@ -9,7 +9,7 @@ public class ChangePlayerSize : MonoBehaviour
 
     AudioSource _AudioSource;
 
-    float StartHeadYPos, StartFOV, StartCenterY, StartHeight;
+    float StartHeadYPos, StartFOV, StartHeight;
 
     bool IsChild = false;
 
@@ -17,12 +17,11 @@ public class ChangePlayerSize : MonoBehaviour
 
     private void Awake()
     {
-        StartHeadYPos = Head.transform.position.y;
+        StartHeadYPos = Head.transform.localPosition.y;
         StartFOV = _Camera.fieldOfView;
         _AudioSource = GetComponent<AudioSource>();
         _CharacterController = GetComponent<CharacterController>();
 
-        StartCenterY = _CharacterController.center.y;
         StartHeight = _CharacterController.height;
     }
 
@@ -32,8 +31,8 @@ public class ChangePlayerSize : MonoBehaviour
 
         IsChild = !IsChild;
 
-        Vector3 headPos = new Vector3(Head.transform.position.x, (IsChild ? HeadYPos: StartHeadYPos), Head.transform.position.z);
-        Head.transform.position = headPos;
+        Vector3 headPos = new Vector3(0, (IsChild ? HeadYPos: StartHeadYPos), 0);
+        Head.transform.localPosition = headPos;
         _Camera.fieldOfView = IsChild ? FOV : StartFOV;
 
         Vector3 center = new Vector3(0, (IsChild ? Heigth : StartHeight)/ 2 , 0);
