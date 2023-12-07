@@ -9,6 +9,11 @@ public class ProgressCloseShopTracker : MonoBehaviour
 
     int progress = 0;
 
+    private void Start()
+    {
+        unlockObject.SetIsInputBased(false);
+    }
+
     private void Update()
     {
         progress = 0;
