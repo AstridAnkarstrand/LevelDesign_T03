@@ -18,6 +18,7 @@ public class TriggerZone : MonoBehaviour
     {
         if (other.GetComponent<CharacterController>() == null) return;
 
+        gameObject.GetComponent<Collider>().enabled = false;
         // Do stuff
         onFirstEnter.Invoke();
         enabled = true;

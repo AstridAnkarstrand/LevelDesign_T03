@@ -377,7 +377,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25a9fb42d361f46ad89221f6d301e96e, type: 2}
+  - {fileID: 2100000, guid: 96da40665b0b26b4ca3e3bd6121a282d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -620,3 +620,8 @@ MonoBehaviour:
   Objects:
   - {fileID: 7974015669467626100}
   Button: {fileID: 2394818388516624150}
+  SwitchSFXs:
+  - {fileID: 8300000, guid: 4b0d77df058097b4baedb2f15eeafc5f, type: 3}
+  - {fileID: 8300000, guid: c58e20524bfd86e4d91e5d2f44010e92, type: 3}
+  - {fileID: 8300000, guid: 981503085646f3c4fa40da1f536924a3, type: 3}
+  - {fileID: 8300000, guid: af01eed903f10384bb02a5d860458000, type: 3}
